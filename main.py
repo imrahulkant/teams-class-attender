@@ -17,5 +17,23 @@ opt.add_experimental_option("prefs", {
 driver = webdriver.Chrome(creds.path,options=opt)
 driver.get(creds.url)
 
+def login():
+    print("Login Initiated ... ")
+    time.sleep(5)
+    email = driver.find_element_by_xpath('//*[@id="i0116"]')
+    email.click()
+    email.send_keys(creds.email)
+    driver.find_element_by_xpath('//*[@id="idSIButton9"]').click()
+    time.sleep(5)
+    password = driver.find_element_by_xpath('//*[@id="i0118"]')
+    password.click()
+    password.send_keys(creds.passwd)
+    driver.find_element_by_xpath('//*[@id="idSIButton9"]').click()
+    time.sleep(5)
+    driver.find_element_by_xpath('//*[@id="idSIButton9"]').click()
+    print("Email entered ...")
+    time.sleep(30)
+
+login()
 time.sleep(10)
 driver.quit()
